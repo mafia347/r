@@ -1,17 +1,22 @@
-. countDivisors <- function(num) {
-divisors <- c()
-# Find divisors
-for (i in 2:(num-1)) { if
-(num %% i == 0) {
-divisors <- c(divisors, i)
+calculate_divisors <- function(n) {
+  divisors <- c()
+  
+  for (i in 2:(n - 1)) {
+    if (n %% i == 0) {
+      divisors <- c(divisors, i)
+    }
+  }
+  
+  div_count <- length(divisors)
+  
+  if (div_count == 0) {
+    message("The number ", n, " has no divisors (other than 1 and itself).")
+  } else {
+    cat("Divisors of", n, ":", divisors, "\n")
+    cat("Number of divisors:", div_count, "\n")
+  }
 }
-}
-divisorCount <- length(divisors)
-# Print divisors and count cat("Divisors:", divisors,
-"\n")
-cat("Number of Divisors:", divisorCount, "\n")
-}
-# Read input from user
-num <- as.integer(readline("Enter an integer: "))
-# Call the function with user input countDivisors(num)
-countDivisors(num)
+
+
+# Call the function with the integer 12
+calculate_divisors(12)
