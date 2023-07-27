@@ -1,0 +1,7 @@
+# Load the mtcars dataset
+data(mtcars)
+# Create a line plot
+plot(mtcars$drat, mtcars$mpg, type = "l", xlab = "Rear axle ratio", ylab = "Miles/(US) gallon", main = "Miles/(US) gallon vs.
+Rear axle ratio")
+# Create a scatter plot
+plot(mtcars$drat, mtcars$mpg, xlab = "Rear axle ratio", ylab = "Miles/(US) gallon", main = "Miles/(US) gallon vs. Rear axle ratio")

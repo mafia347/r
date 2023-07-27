@@ -1,0 +1,24 @@
+a
+# Load the state.x77 dataset
+data(state.x77)
+# Make sure it is a data frame
+state.x77 <- as.data.frame(state.x77)
+b
+summary(state.x77)
+nrow(state.x77[state.x77$income<5000])
+c
+# State with the highest income
+state_with_highest_income <- state.x77[which.max(state.x77$Income), "State"]
+# State with the lowest incomestate_with_lowest_income <-
+state.x77[which.min(state.x77$Income), "State"]
+d
+colnames(state.x77)[colnames(state.x77) == "state.region"] <- "Reg"
+e
+state.x77 <- state.x77[, !(colnames(state.x77) %in% c("div", "Life Exp", "HS Grad", "Frost", "abb"))]
+f
+state.x77$Illiteracy_Level <- cut(state.x77$Illit, breaks = c(0, 1, 2, Inf), labels = c("Low", "Some",
+"High"))
+g
+west_low_illiteracy_state <- subset(state.x77, Region == "West" & Illiteracy_Level == "Low")
+highest_income_west_low_illiteracy <-
+west_low_illiteracy_state[which.max(west_low_illiteracy_state$Income), c("State", "Income")]
