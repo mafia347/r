@@ -1,3 +1,4 @@
 data(mtcars)
-plot(mtcars$mpg,mtcars$drat,xlab = "miles per gallon",ylab = "Rear axle ratio")
-boxplot(mtcars$mpg, main = "Boxplot of Miles/(US) gallon (mpg)", ylab = "Miles/(US) gallon")
+plot(mtcars$mpg,mtcars$drat,main="Miles/(US) gallon versus Rear axle ratio",xlab="Miles/(US) gallon",ylab="Rear axle ratio")
+
+plot(mtcars$mpg,mtcars$drat,main="Miles/(US) gallon versus Rear axle ratio(Scatterplot)",xlab="Miles/(US) gallon",ylab="Rear axle ratio",type="p",col="blue")
