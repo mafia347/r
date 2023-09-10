@@ -1,18 +1,15 @@
-# Read the content of the file:
-file_path <- "table0.txt"
-contents <- read.delim(file_path,header = TRUE, sep = "\t")
-print(contents)
+data <- read.table("C:/Users/adity/OneDrive/Documents/table0.txt", header = TRUE, na.strings = c("--", "*", "**"))
 
-#Find the missing values:
-missing_values <- subset(contents, Age == "--" | Height == "--" | Weight == "--" | Age
-print("Missing values:")
-print(missing_values)
+cna <- function(x) {
+  if (is.na(as.numeric(x))) {
+    return(NA)
+  } else {
+    return(as.numeric(x))
+  }
+}
 
-# Replace the missing values in column 4 with the average of the column values:
-numeric_values <- as.numeric(as.character(contents$weight))
-average <- mean(numeric_values, na.rm = TRUE)
+data$Age <- sapply(data$Age, convert_to_na)
+data$Height <- sapply(data$Height, cna)
+data$Weight <- sapply(data$Weight, cna)
 
-contents$Weight[contents$Weight == "--" | contents$Weight == "**"] <- average
-
-print("Modified contents:")
-print(contents)
+print(data)
