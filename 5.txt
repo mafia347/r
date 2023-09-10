@@ -1,5 +1,5 @@
 cal <- function(n) {
-  d <- numeric(0)
+  d <- c()
   
   for (i in 2:(n/2)) {
     if (n %% i == 0) {
