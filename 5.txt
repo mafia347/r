@@ -1,22 +1,18 @@
-calculate_divisors <- function(n) {
-  divisors <- c()
+cal <- function(n) {
+  d <- numeric(0)
   
-  for (i in 2:(n - 1)) {
+  for (i in 2:(n/2)) {
     if (n %% i == 0) {
-      divisors <- c(divisors, i)
+      d <- c(d, i)
     }
   }
   
-  div_count <- length(divisors)
-  
-  if (div_count == 0) {
-    message("The number ", n, " has no divisors (other than 1 and itself).")
+  if (length(d) == 0) {
+    message("The number", n, "is prime")
   } else {
-    cat("Divisors of", n, ":", divisors, "\n")
-    cat("Number of divisors:", div_count, "\n")
+    cat("Divisors of", n, ":", d, "\n")
+    cat("Number of divisors:", length(d), "\n")
   }
 }
 
-
-# Call the function with the integer 12
-calculate_divisors(12)
+cal(12)
