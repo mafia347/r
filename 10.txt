@@ -1,34 +1,19 @@
 data(mtcars)
-var1<-mtcars$mpg
-var2<-mtcars$qsec
-var3<-mtcars$wt
-var4<-mtcars$hp
-
-plot(var1,type="o",col="blue",xlab="index",ylab="value")
-lines(var2,type="o",col="red")
-lines(var3,type="o",col="green")
-lines(var4,type="o",col="purple")
-points(var1,col="blue")
-points(var2,col="red")
-points(var3,col="green")
-points(var4,col="purple")
-legend("topright",legend=c("var1","var2","var3","var4"),col=c("blue","red","green","purple"),lty=1,pch=1)
-
-#highlighting it with different color
-data(mtcars)
-highlight_var1<-mtcars$mpg
-highlight_var2<-mtcars$qsec
-highlight_var3<-mtcars$wt
-highlight_var4<-mtcars$hp
-
-plot(var1,type="o",col="blue",xlab="index",ylab="value")
-lines(var2,type="o",col="red")
-lines(var3,type="o",col="green")
-lines(var4,type="o",col="purple")
-points(var1,col="blue")
-points(var2,col="red")
-points(var3,col="green")
-points(var4,col="purple")
-lines(highlight_var1,type="o",col="orange")
-points(highlight_var1,col="orange")
-legend("topright",legend=c("var1","var2","var3","var4"),col=c("blue","red","green","purple"),lty=1,pch=1)
+selected_vars <- c("mpg", "disp", "hp", "wt")
+par(mfrow = c(1, 1))
+colors <- c("blue", "green", "red", "orange")
+line_widths <- c(1, 1, 1, 2)
+for (i in seq_along(selected_vars)) {
+  var <- selected_vars[i]
+  col <- colors[i]
+  lwd <- line_widths[i]
+  plot(mtcars[, var], type = "n", xlab = "Index", ylab = var, main = paste("Line and Points Plot of", var))
+  lines(mtcars[, var], col = col, lwd = lwd)
+  points(mtcars[, var], col = col, pch = 16)}
+highlight_vars <- c("mpg", "disp", "hp", "wt")
+highlight_colors <- c("red", "green", "blue", "orange")
+for (i in seq_along(highlight_vars)) {
+  var <- highlight_vars[i]
+  col <- highlight_colors[i]
+  lines(mtcars[, var], col = col, lwd = 2)
+  points(mtcars[, var], col = col, pch = 16)}
