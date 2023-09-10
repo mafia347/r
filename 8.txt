@@ -1,9 +1,8 @@
-. # Read the file
-data <-read.table("Table1.txt", header = FALSE)
-# Set the column names
+data <- read.table("C:/Users/adity/OneDrive/Documents/table0.txt", header = FALSE)
+
 colnames(data) <- c("Name", "Age", "Height", "Weight", "Gender")
-# Set the row namesto the values in the first column (Name)
+
 rownames(data) <- data$Name
-# Remove the Name variable data <- data[, -1]
-# Print the modified data
+data$Name <- NULL
+
 print(data)
