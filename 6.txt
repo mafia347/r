@@ -1,15 +1,12 @@
-change_to_NA <- function(data_frame, value) {
-  data_frame[data_frame == value] <- NA
-  return(data_frame)
+ch<- function(df, val) {
+  df[df == val] <- NA
+  return(df)
 }
 
+df1 <- data.frame(
+  A = c(1, 2, 3, 4, 5),
+  B = c("A", "B", "A", "C", "D")
+)
 
-# Sample data frame
-df <- data.frame(A = c(1, 2, 3, 4, 5),
-                 B = c("A", "B", "A", "C", "D"))
-
-# Call the function to change all occurrences of "A" to NA in the data frame
-modified_df <- change_to_NA(df, "A")
-
-# Print the modified data frame
-print(modified_df)
+mdf <- ch(df1, "A")
+print(mdf)
