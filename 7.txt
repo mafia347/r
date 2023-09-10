@@ -8,7 +8,7 @@ cna <- function(x) {
   }
 }
 
-data$Age <- sapply(data$Age, convert_to_na)
+data$Age <- sapply(data$Age, cna)
 data$Height <- sapply(data$Height, cna)
 data$Weight <- sapply(data$Weight, cna)
 
